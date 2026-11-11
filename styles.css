@@ -10,9 +10,11 @@
     overflow: hidden;
     background: #fff;
 }
+
 .portrait-placeholder::before {
     display: none;
 }
+
 .portrait-placeholder .profile-image {
     display: block;
     position: absolute;
@@ -21,4 +23,10 @@
     height: 100%;
     object-fit: cover;
     object-position: center 25%;
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+}
+
+.portrait-wrap:hover .profile-image {
+    transform: scale(1.045);
 }
