@@ -32,3 +32,74 @@
 .portrait-wrap:hover .profile-image {
     transform: scale(1.12);
 }
+
+
+/* Profile image: balanced crop and subtle hover zoom */
+.portrait-placeholder {
+    position: relative;
+    overflow: hidden;
+}
+
+.portrait-placeholder::before {
+    display: none;
+}
+
+.portrait-placeholder .profile-image {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    transform: scale(1.045);
+    transform-origin: center 35%;
+    transition: transform 700ms cubic-bezier(.2,.8,.2,1);
+    will-change: transform;
+}
+
+.portrait-wrap:hover .profile-image {
+    transform: scale(1.105);
+}
+
+/* Clear, comfortable navigation */
+.desktop-nav {
+    gap: clamp(16px, 2.5vw, 34px);
+}
+
+.desktop-nav a,
+.mobile-nav a {
+    scroll-margin-top: 100px;
+}
+
+.desktop-nav a:focus-visible,
+.mobile-nav a:focus-visible,
+.wordmark:focus-visible,
+button:focus-visible {
+    outline: 2px solid #b46e43;
+    outline-offset: 4px;
+}
+
+/* Keep project cards balanced after the page sections are correctly separated */
+.project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project {
+    width: 100%;
+}
+
+.project-image {
+    width: 100%;
+    transition: transform .45s ease, filter .4s ease;
+}
+
+.project:hover .project-image {
+    filter: saturate(1.06);
+}
+
+@media (max-width: 600px) {
+    .desktop-nav {
+        display: none;
+    }
+}
